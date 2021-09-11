@@ -1,0 +1,173 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+	// Declarations
+	string name;
+	char choice;
+
+	// Beginning the text game
+	cout << "You've awoken in a strange forest. You look around and you don't recognize anything.\n";
+	cout << "You look down and there appears to be a small magical screen that only you can see and that"
+		<< " you're reading these exact words on right now. You find you can also interact with the screen"
+		<< " when prompted to do so.\n";
+	cout << "Instructions: input the appropriate answer to the given prompt or question.\n";
+	cout << "If you are given a list of choices, simply input your choice.\n\n\n";
+
+	cout << "Alright, let's get a move on, shall we? ... I'm not too sure what to call you, actually.\n"
+		<< "What is your name ? \n";
+	getline(cin, name);
+	
+	cout << "\nWell, " << name << " you've gotten yourself into quite the predicament. Checking your surroundings, "
+		<< "you see that, to your right, there's a lake and to your left, there's a forest.\n";
+	cout << "Will you A: wade through the lake or B: walk through the forest? Enter your choice: ";
+	cin >> choice;
+
+	// Bad Ending 1
+	if (choice == 'A')
+	{
+		cout << "\nWow, you really have some back luck here. You try to wade through the lake, but it's a lot deeper "
+			<< "than you thought it would be. Your swimming skills are no match for the strong current or the depth "
+			<< "of the water and you drown.\n\n\n";
+		cout << "GAME OVER." << endl;
+	}
+	// Good Choice 1
+	else if (choice == 'B')
+	{
+		cout << "\nAs you enter the forest, you realize there are two parts to it, a sunny and a shaded part "
+			<< "covered by trees and plants.\n";
+		cout << "Will you A: go through the shaded part or B: go through the sunny part? Enter your choice: ";
+		cin >> choice;
+
+		// Bad Ending 2
+		if (choice == 'A')
+		{
+			cout << "\nYikes! You didn't realize that the shaded part of the forest is where all the scariest "
+				<< "creatures like to hide. You started your journey through and closely thereafter became the lunch "
+				<< "of a few snakes.\n\n\n";
+			cout << "GAME OVER." << endl;
+		}
+		// Good Choice 2
+		else if (choice == 'B')
+		{
+			cout << "\nYou start your journey through the sunny part of the forest when you see some footprints on the "
+				<< "floor.\n";
+			cout << "Will you A: follow the footprints or B: try to find another way through the forest? Enter your choice: ";
+			cin >> choice;
+
+			// Bad Ending 3
+			if (choice == 'B')
+			{
+				cout << "\nDarn it! You try to find your way through the forest on your own, but you're completely lost."
+					<< " You wander until a bear finds you and wildly attacks you because it has mistaken you for a threat.\n\n\n";
+				cout << "GAME OVER." << endl;
+			}
+			// Good Choice 3
+			else if (choice == 'A')
+			{
+				cout << "\nFollowing the footprints leads you to a trolls' cave. *GASP* The trolls are home and they do not "
+					<< "look happy to see you. You realize you have to find a way past them or get them to help you.\n";
+				cout << "Will you A: barter with them to get help from them or B: attempt to trick them? Enter your choice: ";
+				cin >> choice;
+
+				// Bad Ending 4
+				if (choice == 'A')
+				{
+					cout << "\nYou try bartering with them, but you spawned into this world with nothing but the clothes on your back so "
+						<< "you have nothing to offer them. Instead they eat you alive as compensation for disturbing them.\n\n\n";
+					cout << "GAME OVER." << endl;
+				}
+				// Good Choice 4
+				else if (choice == 'B')
+				{
+					cout << "\nYou attempt to trick the trolls by telling them you saw a delicious looking animal behind you and "
+						<< "they fall for it! This leaves you with the chance to look through their cave. You see a map and you grab "
+						<< "it, but there's also so much more.\n";
+					cout << "Will you A: grab the map and run or B: keep looting more stuff? Enter your choice: ";
+					cin >> choice;
+
+					// Bad Ending 5
+					if (choice == 'B')
+					{
+						cout << "\nYou should have known better. The trolls come back angrier since they found no delicious animal and "
+							<< "they eat you instead.\n\n\n";
+						cout << "GAME OVER." << endl;
+					}
+					// Good Choice 5
+					else if (choice == 'A')
+					{
+						cout << "\nYou grab the map and run away before the trolls come back. However, you quickly realize "
+							<< " you have no idea what the map says since it's in their language.\n";
+						cout << "Will you A: keep trying to understand the map or B: go back to the troll cave to see what "
+							<< "else you can find? Enter your choice: ";
+						cin >> choice;
+
+						// Bad Ending 6
+						if (choice == 'A')
+						{
+							cout << "\nYou wander the forest in confusion and while you are squinting at the map trying to "
+								<< "understand it, one of the trolls finds you and grabs you. They have nice " << name << "-flavored "
+								<< "barbecue that night.\n\n\n";
+							cout << "GAME OVER." << endl;
+
+						}
+						// Good Choice 6 - Good Ending
+						else if (choice == 'B')
+						{
+							cout << "\nYou go back to the trolls' cave and find that it is empty since they are searching for "
+								<< "you. You take a quick look around and you see a translation book from their language to yours "
+								<< "sitting in the corner. You run as fast as you can away from the cave and begin translating the "
+								<< "map. You are able to translate it and find your way out of the forest where you see a large "
+								<< "button. You press it and are transported back to your world.\n\n\n";
+							cout << "Congratulations " << name << "! YOU WIN!" << endl;
+						}
+						// Error Scenario 6
+						else
+						{
+							cout << "\nYou were quite literally one step away from freedom and now you'll never "
+								<< "get there because of single bad keystroke.\n\n\n";
+							cout << "GAME OVER." << endl;
+						}
+					}
+					// Error Scenario 5
+					else
+					{
+						cout << "\nFreedom was so close and you messed up. Rough.\n\n\n";
+						cout << "GAME OVER." << endl;
+					}
+				}
+				// Error Scenario 4
+				else
+				{
+					cout << "\nDang. I would say better luck next time, but there is no next time. A single "
+						<< "keyboard click has ended your chance to play this game through ...\n\n\n";
+					cout << "GAME OVER." << endl;
+				}
+			}
+			// Error Scenario 3
+			else
+			{
+				cout << "\nAnd you were doing so well, too. Alas, looks like you'll never go home.\n\n\n";
+				cout << "GAME OVER." << endl;
+			}
+		}
+		// Error Scenario 2
+		else
+		{
+			cout << "\nReally? Defeated already and not even because of a bad decision? Perhaps you're not the "
+				<< "worthy player I thought you were ...\n\n\n";
+			cout << "GAME OVER." << endl;
+		}
+	}
+	// Error Scenario 1
+	else
+	{
+	cout << "\nHow do you mess up between two clear choices? You clearly are not fit to play this game.\n\n\n";
+	cout << "GAME OVER." << endl;
+	exit(0);
+	}
+
+	return 0;
+}
