@@ -1,0 +1,347 @@
+#include <iostream>
+#include <string>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+	// Declarations
+	int choice;
+	int addOns = 0;
+	char addOn1, addOn2, addOn3;
+	double total;
+	string addOnChoices;
+
+	string restaurantName = "The Curry Cooker";
+	string slogan = "Eat with your hands like the people from our homelands";
+
+		// Constant strings for menu items
+	const string ITEM1 = "Biryani";
+	const string ITEM2 = "Butter Chicken";
+	const string ITEM3 = "Palak Paneer";
+	const string ITEM4 = "Tandoori Chicken";
+
+		// Creating constants for costs
+	const double COST_ITEM1 = 7.00;
+	const double COST_ITEM2 = 8.00;
+	const double COST_ITEM3 = 5.00;
+	const double COST_ITEM4 = 8.00;
+
+	const double COST_ADD_ON = 3.00;
+
+		// Initializing booleans for add-ons
+	bool grilledVegetables;
+	grilledVegetables = false;
+	bool samosa;
+	samosa = false;
+	bool chicken;
+	chicken = false;
+	bool naan;
+	naan = false;
+	bool rice;
+	rice = false;
+	bool yogChutney;
+	yogChutney = false;
+	bool tamCilChutney;
+	tamCilChutney = false;
+
+
+	// Presenting a user-friendy message to the user with restaurant name and slogan
+	cout << "Welcome to " << restaurantName << " where our slogan is \"" << slogan << "!\"" << "\n\n\n";
+
+	// Presenting the four food items to the customer and asking them to choose an item
+	cout << "Our Menu: \n"
+		<< "1. " << ITEM1 << endl
+		<< "2. " << ITEM2 << endl
+		<< "3. " << ITEM3 << endl
+		<< "4. " << ITEM4 << endl
+		<< "Enter your choice (type in the number): ";
+	cin >> choice;
+
+	// Setting the numeric output formatting
+	cout << fixed << showpoint << setprecision(2);
+
+	// Using a switch statement to branch to the logic for each item
+	switch (choice)
+	{
+		// Item 1: Biryani
+		case 1:
+			
+			// Asking for user input about sides
+			cout << "Would you like grilled vegetables with that? (Respond 'Y' for yes and 'N' for no)\n";
+			cin >> addOn1;
+			if (addOn1 == 'Y')
+			{
+				addOns++;
+				grilledVegetables = true;
+			}
+			cout << "Would you like samosa with that? (Respond 'Y' for yes and 'N' for no)\n";
+			cin >> addOn2;
+			if (addOn2 == 'Y')
+			{
+				addOns++;
+				samosa = true;
+			}
+			cout << "Would you like chicken in your biryani? (Respond 'Y' for yes and 'N' for no)\n";
+			cin >> addOn3;
+			if (addOn3 == 'Y')
+			{
+				chicken = true;
+				addOns++;
+			}
+
+			// Calculating total cost
+			total = COST_ITEM1 + (COST_ADD_ON * addOns);
+
+			// Using if statements to decide which sides were chosen
+			if ((grilledVegetables == false) && (samosa == false) && (chicken == false))
+			{
+				addOnChoices = "You have chosen no add-ons.";
+			}
+			else if ((grilledVegetables == true) && (samosa == false) && (chicken == false))
+			{
+				addOnChoices = "You have chosen grilled vegetables as add-ons.";
+			}
+			else if ((grilledVegetables == false) && (samosa == true) && (chicken == false))
+			{
+				addOnChoices = "You have chosen samosa as your add-ons.";
+			}
+			else if ((grilledVegetables == false) && (samosa == false) && (chicken == true))
+			{
+				addOnChoices = "You have chosen chicken as your add-on.";
+			}
+			else if ((grilledVegetables == true) && (samosa == true) && (chicken == false))
+			{
+				addOnChoices = "You have chosen grilled vegetables and samosa as your add-ons.";
+			}
+			else if ((grilledVegetables == true) && (samosa == false) && (chicken == true))
+			{
+				addOnChoices = "You have chosen grilled vegetables and chicken as your add-ons.";
+			}
+			else if ((grilledVegetables == false) && (samosa == true) && (chicken == true))
+			{
+				addOnChoices = "You have chosen samosa and chicken as your add-ons.";
+			}
+			else if ((grilledVegetables == true) && (samosa == true) && (chicken == true))
+			{
+				addOnChoices = "You have chosen grilled vegetables, samosa, and chicken as your add-ons.";
+			}
+
+			// Returning what they ordered, the add-ons, and the total cost
+			cout << "You ordered " << ITEM1 << ". " << addOnChoices << " So, your total cost is $"
+				<< total << endl;
+			break;
+		
+		// Item 2: Butter Chicken
+		case 2:
+
+			// Asking for user input about sides
+			cout << "Would you like grilled vegetables with that? (Respond 'Y' for yes and 'N' for no)\n";
+			cin >> addOn1;
+			if (addOn1 == 'Y')
+			{
+				grilledVegetables = true;
+				addOns++;
+			}
+			cout << "Would you like naan with your butter chicken? (Respond 'Y' for yes and 'N' for no)\n";
+			cin >> addOn2;
+			if (addOn2 == 'Y')
+			{
+				naan = true;
+				addOns++;
+			}
+			cout << "Would you like rice with your butter chicken? (Respond 'Y' for yes and 'N' for no)\n";
+			cin >> addOn3;
+			if (addOn3 == 'Y')
+			{
+				rice = true;
+				addOns++;
+			}
+			
+			// Calculating total cost
+			total = COST_ITEM2 + (COST_ADD_ON * addOns);
+			
+			// Using if statements to decide which sides were chosen
+			if ((grilledVegetables == false) && (naan == false) && (rice == false))
+			{
+				addOnChoices = "You have chosen no add-ons.";
+			}
+			else if ((grilledVegetables == true) && (naan == false) && (rice == false))
+			{
+				addOnChoices = "You have chosen grilled vegetables as add-ons.";
+			}
+			else if ((grilledVegetables == false) && (naan == true) && (rice == false))
+			{
+				addOnChoices = "You have chosen naan as your add-ons.";
+			}
+			else if ((grilledVegetables == false) && (naan == false) && (rice == true))
+			{
+				addOnChoices = "You have chosen rice as your add-on.";
+			}
+			else if ((grilledVegetables == true) && (naan == true) && (rice == false))
+			{
+				addOnChoices = "You have chosen grilled vegetables and naan as your add-ons.";
+			}
+			else if ((grilledVegetables == true) && (naan == false) && (rice == true))
+			{
+				addOnChoices = "You have chosen grilled vegetables and rice as your add-ons.";
+			}
+			else if ((grilledVegetables == false) && (naan == true) && (rice == true))
+			{
+				addOnChoices = "You have chosen naan and rice as your add-ons.";
+			}
+			else if ((grilledVegetables == true) && (naan == true) && (rice == true))
+			{
+				addOnChoices = "You have chosen grilled vegetables, naan, and rice as your add-ons.";
+			}
+
+			// Returning what they ordered, the add-ons, and the total cost
+			cout << "You ordered " << ITEM2 << ". " << addOnChoices << " So, your total cost is $"
+				<< total << endl;
+			break;
+
+		// Item 3: Palak Paneer
+		case 3:
+
+			// Asking for user input about sides
+			cout << "Would you like grilled vegetables with that? (Respond 'Y' for yes and 'N' for no)\n";
+			cin >> addOn1;
+			if (addOn1 == 'Y')
+			{
+				grilledVegetables = true;
+				addOns++;
+			}
+			cout << "Would you like naan with your palak paneer? (Respond 'Y' for yes and 'N' for no)\n";
+			cin >> addOn2;
+			if (addOn2 == 'Y')
+			{
+				naan = true;
+				addOns++;
+			}
+			cout << "Would you like rice with your palak paneer? (Respond 'Y' for yes and 'N' for no)\n";
+			cin >> addOn3;
+			if (addOn3 == 'Y')
+			{
+				rice = true;
+				addOns++;
+			}
+			
+			// Calculating total cost
+			total = COST_ITEM3 + (COST_ADD_ON * addOns);
+
+			// Using if statements to decide which sides were chosen
+			if ((grilledVegetables == false) && (naan == false) && (rice == false))
+			{
+				addOnChoices = "You have chosen no add-ons.";
+			}
+			else if ((grilledVegetables == true) && (naan == false) && (rice == false))
+			{
+				addOnChoices = "You have chosen grilled vegetables as add-ons.";
+			}
+			else if ((grilledVegetables == false) && (naan == true) && (rice == false))
+			{
+				addOnChoices = "You have chosen naan as your add-ons.";
+			}
+			else if ((grilledVegetables == false) && (naan == false) && (rice == true))
+			{
+				addOnChoices = "You have chosen rice as your add-on.";
+			}
+			else if ((grilledVegetables == true) && (naan == true) && (rice == false))
+			{
+				addOnChoices = "You have chosen grilled vegetables and naan as your add-ons.";
+			}
+			else if ((grilledVegetables == true) && (naan == false) && (rice == true))
+			{
+				addOnChoices = "You have chosen grilled vegetables and rice as your add-ons.";
+			}
+			else if ((grilledVegetables == false) && (naan == true) && (rice == true))
+			{
+				addOnChoices = "You have chosen naan and rice as your add-ons.";
+			}
+			else if ((grilledVegetables == true) && (naan == true) && (rice == true))
+			{
+				addOnChoices = "You have chosen grilled vegetables, naan, and rice as your add-ons.";
+			}
+
+			// Returning what they ordered, the add-ons, and the total cost
+			cout << "You ordered " << ITEM3 << ". " << addOnChoices << " So, your total cost is $"
+				<< total << endl;
+			break;
+
+		// Item 4: Tandoori Chicken
+		case 4:
+
+			// Asking for user input about sides
+			cout << "Would you like grilled vegetables with that? (Respond 'Y' for yes and 'N' for no)\n";
+			cin >> addOn1;
+			if (addOn1 == 'Y')
+			{
+				grilledVegetables = true;
+				addOns++;
+			}
+			cout << "Would you like yogurt chutney with your tandoori chicken? (Respond 'Y' for yes and 'N' for no)\n";
+			cin >> addOn2;
+			if (addOn2 == 'Y')
+			{
+				yogChutney = true;
+				addOns++;
+			}
+			cout << "Would you like tamarind and cilantro chutney with your tandoori chicken? (Respond 'Y' for yes and 'N' for no)\n";
+			cin >> addOn3;
+			if (addOn3 == 'Y')
+			{
+				tamCilChutney = true;
+				addOns++;
+			}
+			
+			// Calculating total cost
+			total = COST_ITEM4 + (COST_ADD_ON * addOns);
+			
+			// Using if statements to decide which sides were chosen
+			if ((grilledVegetables == false) && (yogChutney == false) && (tamCilChutney == false))
+			{
+				addOnChoices = "You have chosen no add-ons.";
+			}
+			else if ((grilledVegetables == true) && (yogChutney == false) && (tamCilChutney == false))
+			{
+				addOnChoices = "You have chosen grilled vegetables as add-ons.";
+			}
+			else if ((grilledVegetables == false) && (yogChutney == true) && (tamCilChutney == false))
+			{
+				addOnChoices = "You have chosen yogurt chutney as your add-ons.";
+			}
+			else if ((grilledVegetables == false) && (yogChutney == false) && (tamCilChutney == true))
+			{
+				addOnChoices = "You have chosen tamarind and cilantro chutney as your add-on.";
+			}
+			else if ((grilledVegetables == true) && (yogChutney == true) && (tamCilChutney == false))
+			{
+				addOnChoices = "You have chosen grilled vegetables and yogurt chutney as your add-ons.";
+			}
+			else if ((grilledVegetables == true) && (yogChutney == false) && (tamCilChutney == true))
+			{
+				addOnChoices = "You have chosen grilled vegetables and tamarind and cilantro chutney as your add-ons.";
+			}
+			else if ((grilledVegetables == false) && (yogChutney == true) && (tamCilChutney == true))
+			{
+				addOnChoices = "You have chosen yogurt chutney and tamarind and cilantro chutney as your add-ons.";
+			}
+			else if ((grilledVegetables == true) && (yogChutney == true) && (tamCilChutney == true))
+			{
+				addOnChoices = "You have chosen grilled vegetables, yogurt chutney, and tamarind and cilantro chutney as your add-ons.";
+			}
+
+			// Returning what they ordered, the add-ons, and the total cost
+			cout << "You ordered " << ITEM4 << ". " << addOnChoices << " So, your total cost is $"
+				<< total << endl;
+			break;
+
+		// Invalid input
+		default:
+			cout << "Please choose one of the menu items. Run the \n"
+				<< "program again and select one of the given choices. \n";
+
+	}
+
+	return 0; // End the program
+}
