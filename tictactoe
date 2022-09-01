@@ -1,4 +1,4 @@
-# THis C++ code is a tic-tac-toe simulation that allows the user to play against a manual competitor (duo) or an AI competitor (solo).
+# This C++ code is a tic-tac-toe simulation that allows the user to play against a manual competitor (duo) or an AI competitor (solo).
 
 #include <iostream>
 #include <string>
